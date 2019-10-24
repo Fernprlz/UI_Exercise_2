@@ -33,9 +33,10 @@ So, our web design must look somewhat like this:
   <img src="/images/colors.png" alt="Not working, huh?">
 </p>
 
-<p align="center">
+<h2 align="center">
 d5d6d9 || a0a2ad || 6a6f85 || 70758c || 101012
-</p>
+</h2>
+
 ---
 ### Issues:
 * When collapsing the x dimensions of the site, the option buttons in the header:
