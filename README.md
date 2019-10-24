@@ -15,9 +15,9 @@ User's Interface first exercise on web design.
 
 ---
 ### Exercise Progress:
-  * [] Exercise 1.
-  * [] Exercise 2.
-  * [] Exercise 3.
+  * [ ] Exercise 1.
+  * [ ] Exercise 2.
+  * [ ] Exercise 3.
 ---
 
 ### Reference Image:
@@ -33,7 +33,9 @@ So, our web design must look somewhat like this:
   <img src="/images/colors.png" alt="Not working, huh?">
 </p>
 
+<p align="center">
 d5d6d9 || a0a2ad || 6a6f85 || 70758c || 101012
+</p>
 ---
 ### Issues:
 * When collapsing the x dimensions of the site, the option buttons in the header:
