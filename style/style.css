@@ -23,7 +23,40 @@ a:visited {
 a:hover {
   color:  #6a6f85;
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 /* ---<< HEAD MENU >>--- */
 #headbox {
   background-color: #a0a2ad;
@@ -57,21 +90,144 @@ h1 {
 #site-back {
   width: auto;
   min-height: 100%;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
   flex-wrap: wrap;
 }
+.modal{
+  position: fixed;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 10;
+  background-color: #d5d6d9;
+  width: 40%;
+  max-width: 80%;
+  padding: 20px;
+  border: 1px solid black;
+}
+.modal.active{
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+}
+.modal-title{
+  text-align: center;
+  padding: 10px 15px;
+  font-size: 1.25rem;
+  font-family: "Roboto";
+  font-weight: bold;
+
+}
+.modal-buttons{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30%;
+  margin-right: 30%;
+
+}
+.modal-socials{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.popup-button{
+  cursor: pointer;
+}
+#overlay{
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
+  pointer-events: none;
+  transition: 200ms ease-in-out;
+}
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
 .vertical-box{
   width: 33%;
   background-color: #d5d6d9;
-  align-items: flex-start;
   display: block;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  min-height: 100px;
-  overflow: hidden;
+
+  height: 100%;
+}
+.vertical-box-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 10px auto 10px;
+  height: 20px;
+
+}
+.delete{
+  align-content: center;
+  align-self: flex-start;
+  padding: 1px 2px 1px 2px;
+  font-size: 60%;
+  font-weight: bold;
+}
+.activity{
+  border-style: solid;
+  border-color: #101012;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+.outer-activity{
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
+.activity-inner-part{
+  display: flex;
+  width: 100%;
+}
+.activity-title{
+  margin-right: 10%;
+}
+.activity-top-part{
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.activity-bottom-part{
+  align-items: center;
+  /*TODO: Fix this margin*/
+  margin-left: 5%;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+.activity-date{
+  font-size: 12px;
 }
 /*TODO: Use ID's for javascript maybe*/
 #panelA {
@@ -123,8 +279,13 @@ footer{
   align-content: center;
   justify-content: space-between;
 }
-.socials-icon{
+.socials-link{
   display: flex;
+}
+.social-icon{
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
 
 #footer-text{
