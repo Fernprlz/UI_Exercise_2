@@ -23,6 +23,7 @@ a:visited {
 a:hover {
   color:  #6a6f85;
 }
+/* ---<< SOCIALS TOOLTIP >>--- */
 .tooltip {
   position: relative;
   display: inline-block;
@@ -57,6 +58,40 @@ a:hover {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+/* ---<< DROP DOWN MENU >>--- */
+.hamburguer-icon:hover, .hamburguer-icon:focus {
+  background-color: #a0a2ad;
+  border-radius: 3px;
+}
+.dropdown {
+  position: relative;
+  display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: visible;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 100%;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Roboto';
+}
+.dropdown a:hover {
+  background-color: #ddd;
+}
+.show {
+  display: block;
+}
+
 /* ---<< HEAD MENU >>--- */
 #headbox {
   background-color: #a0a2ad;

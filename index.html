@@ -16,7 +16,7 @@
   <script src="js/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  </script>
+</script>
 </head>
 
 <!-- Header -->
@@ -61,15 +61,15 @@
         <h2 class="modal-title">This text will be replaced by the Title of the activity.</h2>
       </div>
       <div class="modal-socials">
-          <a class="socials-icon" href="https://www.instagram.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" class="social-icon" title="Instagram" alt="Instagram Logo">
-          </a>
-          <a class="socials-icon" href="https://www.twitter.com">
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1024px-Twitter_bird_logo_2012.svg.png" class="social-icon" title="Twitter" alt="Twitter Logo">
-          </a>
-          <a class="socials-link" href="https://www.facebook.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png" class="social-icon" title="Facebook" alt="Facebook Logo">
-          </a>
+        <a class="socials-icon" href="https://www.instagram.com">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" class="social-icon" title="Instagram" alt="Instagram Logo">
+        </a>
+        <a class="socials-icon" href="https://www.twitter.com">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1024px-Twitter_bird_logo_2012.svg.png" class="social-icon" title="Twitter" alt="Twitter Logo">
+        </a>
+        <a class="socials-link" href="https://www.facebook.com">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/600px-Facebook_Logo_%282019%29.png" class="social-icon" title="Facebook" alt="Facebook Logo">
+        </a>
       </div>
     </div>
 
@@ -91,9 +91,16 @@
 
       <div class="vertical-box-header">
         <h2>Title</h2>
-        <img class="icon" src="images/hamburger.png " alt="WebLogo"/>
+        <div class="dropdown">
+          <img onclick="showMenu()" class="icon hamburguer-icon" src="images/hamburger.png " alt="WebLogo"/>
+          <div id="myDropdown" class="dropdown-content">
+            <a onclick="openModal(this, 'modalArchive')">Archive</a>
+            <a href="#">Do this</a>
+            <a href="#">Do that</a>
+            <a href="#">Doodle</a>
+          </div>
+        </div>
       </div>
-
 
       <!----------------------------->
       <div class="panel activity" id="A1">
@@ -174,18 +181,6 @@
         </div>
       </div>
       <!----------------------------->
-
-
-    </div>
-
-    <!-- B Panel -->
-    <div class="panel vertical-box" id="panelB">
-
-      <div class="vertical-box-header">
-        <h2>Title</h2>
-        <img class="icon" src="images/hamburger.png " alt="WebLogo"/>
-      </div>
-
       <!----------------------------->
       <div class="panel activity" id="A4">
         <div class="outer-activity">
@@ -242,15 +237,202 @@
 
     </div>
 
+    <!-- B Panel -->
+    <div class="panel vertical-box" id="panelB">
+
+      <div class="vertical-box-header">
+        <h2>Title</h2>
+        <div class="dropdown">
+          <img onclick="showMenu()" class="icon hamburguer-icon" src="images/hamburger.png " alt="WebLogo"/>
+          <div id="myDropdown" class="dropdown-content">
+            <a onclick="openModal(this, 'modalArchive')">Archive</a>
+            <a href="#">Do this</a>
+            <a href="#">Do that</a>
+            <a href="#">Doodle</a>
+          </div>
+        </div>
+      </div>
+
+      <!----------------------------->
+      <div class="panel activity" id="A6">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto6</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+
+      <!----------------------------->
+      <div class="panel activity" id="A7">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto7</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+
+    </div>
+
     <!-- C Panel -->
     <div class="panel vertical-box" id="panelC">
 
       <div class="vertical-box-header">
         <h2>Title</h2>
-        <img class="icon" src="images/hamburger.png " alt="WebLogo"/>
+        <div class="dropdown">
+          <img onclick="showMenu()" class="icon hamburguer-icon" src="images/hamburger.png " alt="WebLogo"/>
+          <div id="myDropdown" class="dropdown-content">
+            <a onclick="openModal(this, 'modalArchive')">Archive</a>
+            <a href="#">Do this</a>
+            <a href="#">Do that</a>
+            <a href="#">Doodle</a>
+          </div>
+        </div>
       </div>
-    </div>
 
+      <!----------------------------->
+      <div class="panel activity" id="A8">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto8</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+
+      <!----------------------------->
+      <div class="panel activity" id="A9">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto9</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+      <!----------------------------->
+      <div class="panel activity" id="A10">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto10</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+      <!----------------------------->
+      <div class="panel activity" id="A11">
+        <div class="outer-activity">
+          <div class="activity-inner-part activity-top-part">
+            <img id="logo" src="images/harold.jpg" alt="ActivityImage"/>
+            <h3 class="activity-title">Texto11</h3>
+            <button onclick="openModal(this, 'modalDelete')" class="delete">&times</button>
+          </div>
+          <div class="activity-inner-part activity-bottom-part">
+            <div class="tooltip">
+              <img onclick="like(this)" class="icon" src="images/like0.png" alt="LikeButton"/>
+              <span class="tooltiptext">Like this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img class="icon" src="images/comment.png" alt="CommentButton"/>
+              <span class="tooltiptext">Comment about this activity!</span>
+            </div>
+            <div class="tooltip">
+              <img onclick="openModal(this, 'modalShare')" class="icon" src="images/share.png" alt="ShareButton"/>
+              <span class="tooltiptext">Share this activity!</span>
+            </div>
+            <h3 class="activity-date">dd/mm/yyyy 00:00</h3>
+          </div>
+        </div>
+      </div>
+      <!----------------------------->
+
+
+    </div>
 
     <!-- Footer -->
 

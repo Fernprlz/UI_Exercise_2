@@ -15,7 +15,7 @@ User's Interface first exercise on web design.
 
 ---
 ### Exercise Progress:
-  * [ ] Exercise 1.
+  * [x] Exercise 1.
   * [ ] Exercise 2.
   * [ ] Exercise 3.
 ---
