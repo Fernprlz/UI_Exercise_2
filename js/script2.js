@@ -118,11 +118,11 @@ function validateForm(){
   var valid = true;
   var password = document.forms["registrationForm"]["password"].value;
   var email = document.forms["registrationForm"]["email"].value;
-  var rePassword = new RegExp ("^[a-zA-Z0-9]$");
+  var username = document.forms["registrationForm"]["username"].value;
+  var rePassword = /^[a-zA-Z0-9]*$/;
   var reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  alert(password)
 
-  if(password.length > 8 || rePassword.test(password) == false){
+  if(password.length > 8 || rePassword.test(String(password)) == false){
     alert("Password is invalid, please check that it satisfies:"+
     "\n - Maximum 8 characters."+
     "\n - Only contains letters (upper or underscore) or numbers [0-9].")
@@ -134,15 +134,16 @@ function validateForm(){
     valid = false;
   }
 
-  alert("COÑO! = " + valid )
   if(valid == true){
-    alert("COÑODOBLE! = " + valid )
     if (emailExists(email)){
       alert("Email has already been used")
     } else {
       storeCookie(email, password, username)
       alert("Account created succesfully!")
-      window.location.assign("loginPage.html")
+      window.location.replace("loginPage.html")
+      // Return false so that the redirection works insted of going to the page
+      // that is generated after submitting the form.
+      return false;
     }
   }
   return valid
@@ -161,31 +162,35 @@ function storeCookie(email, password, username){
   // We store the email and password on the same cookie as:
   // example@email.com=password/username
   document.cookie = email + "=" + password + "/" + username + ";" + expires + ";path=/";
+  return
 }
 
 function logIn(){
+
   var email = document.forms["loginForm"]["email"].value;
   var password = document.forms["loginForm"]["password"].value;
- alert("COÑO!")
+
 
   if(correctLogIn(email, password)){
     // Load the page
-    window.location.assign("index2.html")
+    window.location.replace("index2.html")
+
     // Change the page title to the username
-    var username = getUsername(email)
-    var pageTitle = document.getElementById("username")
-    pageTitle.innerHTML = username
-    return true
+    // First save the username in a global variable
+    titleUsername = getUsername(email)
+    localStorage.setItem("titleUsername", titleUsername);
+    return false
+
   }else{
     alert("This combination email/password doesn't exist.\nPlease, try again.")
     return false
   }
 
 }
+
 // The problem with this method is that
 function correctLogIn(email, password){
   var cookiePassword = getPassword(email)
-
   if (cookiePassword == password){
     return true;
   } else {
@@ -205,9 +210,10 @@ function getUsername(email){
 
 function splitValue(value){
   var middleIndex = value.indexOf("/")
-  var result
+
+  var result = []
   result[0] = value.substring(0, middleIndex)
-  result[1] = value.substring(middleIndex + 1, str.length)
+  result[1] = value.substring(middleIndex + 1, value.length)
   return result
 }
 
@@ -226,4 +232,12 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+window.onload = function(){
+  var newTitle = localStorage.getItem("titleUsername");
+  if (newTitle != 'null' && newTitle != null){
+    var pageTitle = document.getElementById('username')
+    pageTitle.innerHTML = newTitle
+    localStorage.removeItem("titleUsername");
+  }
 }
