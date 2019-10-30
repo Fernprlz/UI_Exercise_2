@@ -89,22 +89,27 @@ function like(elem){
   }
 }
 
-
-
-function showMenu(){
-  document.getElementById("myDropdown").classList.toggle("show");
+function showMenu(elem){
+  // First toggle show on every open menu
+  hideAllMenus()
+  // Then toggle show on the clicked menu
+  document.getElementById(elem).classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.hamburguer-icon')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+    hideAllMenus()
+  }
+}
+
+function hideAllMenus(){
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
     }
   }
 }

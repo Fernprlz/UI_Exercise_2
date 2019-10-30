@@ -66,19 +66,22 @@ a:hover {
 }
 .dropdown {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 100px;
   overflow: visible;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   margin-top: 100%;
 }
 .dropdown-content a {
+  text-align: center;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -263,16 +266,6 @@ h1 {
 }
 .activity-date{
   font-size: 12px;
-}
-/*TODO: Use ID's for javascript maybe*/
-#panelA {
-
-}
-#panelB {
-
-}
-#panelC {
-
 }
 #section-title {
   margin-bottom: 0px;
