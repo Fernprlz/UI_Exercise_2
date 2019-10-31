@@ -67,7 +67,7 @@ p {
   visibility: visible;
 }
 
-/* ---<< DROP DOWN MENU >>--- */
+/* ---<< HAMBURGUER DROP DOWN MENU >>--- */
 .hamburguer-icon:hover, .hamburguer-icon:focus {
   background-color: #a0a2ad;
   border-radius: 3px;
@@ -148,6 +148,7 @@ h1 {
   padding-top: 10px;
   flex-wrap: wrap;
 }
+/* >>------<< BODY MODALS >>----- */
 .modal{
   position: fixed;
   display: block;
@@ -208,6 +209,7 @@ h1 {
   opacity: 1;
   pointer-events: all;
 }
+/* ----------------------- */
 .vertical-box{
   width: 33%;
   display: block;
@@ -216,13 +218,7 @@ h1 {
   margin-bottom: 10px;
   height: 100%;
 }
-.registration{
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  min-height: 200px;
-}
+
 .vertical-box-header{
   display: flex;
   align-items: center;
@@ -273,12 +269,10 @@ h1 {
 }
 .activity-bottom-part{
   align-items: center;
-  /*TODO: Fix this margin*/
   margin-left: 5%;
   justify-content: space-between;
   height: 20px;
 }
-
 .icon{
   width: 20px;
   height: 20px;
@@ -301,8 +295,45 @@ h1 {
   background-color: #70758c;
   border-radius: 12px;
 }
-/* ------<< Input Form >>----- */
+/* ------<< INPUT FORM >>----- */
+
+{box-sizing: border-box;}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+.form-icon {
+  padding: 10px;
+  background: #a0a2ad;
+  color: white;
+  height: 20px;
+  min-width: 50px;
+  text-align: center;
+}
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  height: 100%;
+}
+
+.input-field:focus {
+  border: 2px solid #a0a2ad;
+}
+#cake-icon{
+  height: 24px;
+}
+#globe-icon{
+  height: 19px;
+}
+
 .registration{
+  justify-content: space-around;
+    width: 100%;
   display: block;
   padding: 20px 15% 5% 15%;
   text-align: center;
@@ -397,50 +428,4 @@ footer{
   border-color:  #6a6f85;
   margin-right: 5px;
   margin-left: 5px;
-}
-
-
-/*****************************************/
-
-{box-sizing: border-box;}
-
-/* Style the input container */
-.input-container {
-  display: flex;
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  align-items: center;
-}
-
-/* Style the form icons */
-.form-icon {
-  padding: 10px;
-  background: #a0a2ad;
-  color: white;
-  height: 20px;
-  min-width: 50px;
-  text-align: center;
-}
-
-/* Style the input fields */
-.input-field {
-  width: 100%;
-  padding: 10px;
-  outline: none;
-  height: 100%;
-}
-
-.input-field:focus {
-  border: 2px solid #a0a2ad;
-}
-#cake-icon{
-  height: 24px;
-}
-#globe-icon{
-  height: 19px;
-}
-
-.btn:hover {
-  opacity: 1;
 }

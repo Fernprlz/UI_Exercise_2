@@ -3,24 +3,34 @@ var currentModalID
 var panelID
 var numberOfVerticalBoxes = 3
 
+// Opens a modal (pop-up) depending on its ID
 function openModal(elem, modalID){
+  // Global variables are set so we can access them later
+  // these are activity and panel ID, so we can operate with them in archive/remove/share
   setActivityID(elem)
   setPanelID(elem)
   currentModalID = modalID
-  // Open Modal
+
+  // Set Share pop-up title to the activity title
   if (modalID == "modalShare"){
     prepareShare()
   }
+
+  // Make the modal and the overlay visibles
   const modal = document.getElementById(currentModalID)
   modal.classList.add("active")
   const overlay = document.getElementById("overlay")
   overlay.classList.add("active")
 }
 
+// Set Share pop-up title to the activity title
 function prepareShare(){
+  // Retrieve children of the current element of the DOM
   const activityChild = document.querySelectorAll('#' + activityID + ' .activity-title')
+  // Retrieve the title of the nearest element belonging to the activity-title class
   const activityTitle = activityChild[0].textContent
 
+  // Change the modal title to the one we previously retrieved
   const modal = document.getElementById(currentModalID)
   const modalChild = document.querySelectorAll('#modalShare .modal-title')
   modalChild[0].textContent = activityTitle
@@ -44,32 +54,37 @@ function setPanelID(elem){
   if (elem) // Check we found a DIV with an ID
   // record the ID on the activityID variable so we can remove it
   panelID = elem.id
-
 }
 
+// Close the modal and perform pertinent actions
 function closeModal(choice){
   const modal = document.getElementById(currentModalID)
   modal.classList.remove("active")
   const overlay = document.getElementById("overlay")
   overlay.classList.remove("active")
   if (currentModalID == "modalDelete" && choice.id == "yes")
-  removeElementByID(activityID)
+    // Remove the selected activity
+    removeElementByID(activityID)
   else if (currentModalID == "modalArchive" && choice.id == "yes") {
+    // Remove the vertical box and resize the ones still active
     removeElementByID(panelID)
     --numberOfVerticalBoxes;
     resizeVerticalBoxes()
   }
 
+  // Reset global variables
   activityID = null
   currentModalID = null
 }
 
+// Removes the element with the specified ID
 function removeElementByID(elementId) {
   // Removes an element from the document
   var element = document.getElementById(elementId)
   element.parentNode.removeChild(element)
 }
 
+// Resize active vertical boxes, leaving a gap between them
 function resizeVerticalBoxes(){
   // go inside each vertical box
   // set width to 100/numberOfVerticalBoxes
@@ -80,7 +95,7 @@ function resizeVerticalBoxes(){
   }
 }
 
-// TODO: explain
+// Change like button image to highlight it
 function like(elem){
   if (elem.src.indexOf("images/like0.png") != -1){
     elem.src = "images/like1.png"
@@ -89,6 +104,7 @@ function like(elem){
   }
 }
 
+// Shows the hamburguer menu
 function showMenu(elem){
   // First toggle show on every open menu
   hideAllMenus()
@@ -103,6 +119,7 @@ window.onclick = function(event) {
   }
 }
 
+// Hides all active dropdown-menus
 function hideAllMenus(){
   var dropdowns = document.getElementsByClassName("dropdown-content");
   var i;
@@ -114,14 +131,19 @@ function hideAllMenus(){
   }
 }
 
+// Validates the form and performs pertinent actions
 function validateForm(){
   var valid = true;
   var password = document.forms["registrationForm"]["password"].value;
   var email = document.forms["registrationForm"]["email"].value;
   var username = document.forms["registrationForm"]["username"].value;
+  // REGEX VALIDATION
+  // Alphanumeric values, capital letters available
   var rePassword = /^[a-zA-Z0-9]*$/;
+  // i.e: sample@server.com
   var reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+  // Check password validity
   if(password.length > 8 || rePassword.test(String(password)) == false){
     alert("Password is invalid, please check that it satisfies:"+
     "\n - Maximum 8 characters."+
@@ -129,15 +151,18 @@ function validateForm(){
     valid = false;
   }
 
+  // Check e-mail validity
   if(reEmail.test(String(email).toLowerCase()) == false){
     alert("Please, insert a valid e-Mail address:\nexample@server.com")
     valid = false;
   }
 
+  // If both tests are passed, check if the email exist.
   if(valid == true){
     if (emailExists(email)){
       alert("Email has already been used")
     } else {
+      // If it exists, store a cookie, notify the user and load login page.
       storeCookie(email, password, username)
       alert("Account created succesfully!")
       window.location.replace("loginPage.html")
@@ -149,11 +174,12 @@ function validateForm(){
   return valid
 }
 
-
+// Searches the email in the cookie string
 function emailExists(email){
   return (document.cookie.indexOf(email) == -1) ? false : true;
 }
 
+// Stores the email, password and username on the cookie
 function storeCookie(email, password, username){
   var d = new Date();
   // Set expiration date to 1 year
@@ -165,8 +191,9 @@ function storeCookie(email, password, username){
   return
 }
 
+// Logs in and redirects the user to its page
 function logIn(){
-
+  // Retrieves the email and password from the form
   var email = document.forms["loginForm"]["email"].value;
   var password = document.forms["loginForm"]["password"].value;
 
@@ -188,7 +215,8 @@ function logIn(){
 
 }
 
-// The problem with this method is that
+// Compares the password assigned to the inserted email on the cookie with
+// the inserted password
 function correctLogIn(email, password){
   var cookiePassword = getPassword(email)
   if (cookiePassword == password){
@@ -198,16 +226,19 @@ function correctLogIn(email, password){
   }
 }
 
+// Retrieves the password given an email
 function getPassword(email){
   var cookieValue = getCookie(email)
   return splitValue(cookieValue)[0]
 }
 
+// Retrieves the username given an email
 function getUsername(email){
   var cookieValue = getCookie(email)
   return splitValue(cookieValue)[1]
 }
 
+// Extracts the password and the username from the cookie value and returns an array
 function splitValue(value){
   var middleIndex = value.indexOf("/")
 
@@ -233,6 +264,8 @@ function getCookie(cname) {
   }
   return "";
 }
+
+// Upon loading, check in localStorage for a change on the username to be displayed
 window.onload = function(){
   var newTitle = localStorage.getItem("titleUsername");
   if (newTitle != 'null' && newTitle != null){
