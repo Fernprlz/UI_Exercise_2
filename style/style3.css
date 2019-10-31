@@ -23,6 +23,14 @@ a:visited {
 a:hover {
   color:  #6a6f85;
 }
+h5{
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+p {
+  margin-top: 2px;
+  text-align: justify;
+}
 /* ---<< SOCIALS TOOLTIP >>--- */
 .tooltip {
   position: relative;
@@ -112,6 +120,7 @@ a:hover {
   width: 60px;
   height: 60px;
   margin-left: 10px;
+
 }
 h1 {
   font-size: 40px;
@@ -202,12 +211,18 @@ h1 {
 }
 .vertical-box{
   width: 33%;
-  background-color: #d5d6d9;
   display: block;
+  background-color: #d5d6d9;
   padding-bottom: 10px;
   margin-bottom: 10px;
-
   height: 100%;
+}
+.registration{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 200px;
 }
 .vertical-box-header{
   display: flex;
@@ -215,7 +230,6 @@ h1 {
   justify-content: space-between;
   margin: 10px 10px auto 10px;
   height: 20px;
-
 }
 .delete{
   align-content: center;
@@ -250,8 +264,7 @@ h1 {
   width: 100%;
 }
 .activity-title{
-  text-align: center;
-  margin-left: 5%;
+  margin-right: 10%;
 }
 .activity-top-part{
   justify-content: space-between;
@@ -288,14 +301,62 @@ h1 {
   background-color: #70758c;
   border-radius: 12px;
 }
-h5{
-  margin-top: 2px;
-  margin-bottom: 2px;
+/* ------<< Input Form >>----- */
+.registration{
+  display: block;
+  padding: 20px 15% 5% 15%;
+  text-align: center;
+  align-content: center;
+
 }
-p {
-  margin-top: 2px;
-  text-align: justify;
+.form-info-box{
+  background-color: white;
+  min-height: 100px;
+  min-width: 300px;
+  display: block;
+  padding: 1px 10% 20px 10%;
+  align-content: flex-end;
+  width: auto;
+  margin-bottom: 20px;
+
 }
+.form-terms-box{
+  background-color: white;
+  height: 30px;
+  display: flex;
+  padding: 0px 10% 5px 10%;
+  width: auto;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.form-buttons-box{
+  background-color: white;
+  min-height: 80px;
+  display: flex;
+  padding: 5px 10% 5px 10%;
+  width: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+#terms-conditions{
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+#terms-conditions-link{
+  border-bottom: 1px dotted black;
+}
+
+.form-button{
+  background-color: #a0a2ad;
+  width: 40%;
+}
+/* ---------------------------- */
+
 /* ------<< Footer >>----- */
 
 footer{
@@ -336,4 +397,50 @@ footer{
   border-color:  #6a6f85;
   margin-right: 5px;
   margin-left: 5px;
+}
+
+
+/*****************************************/
+
+{box-sizing: border-box;}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+/* Style the form icons */
+.form-icon {
+  padding: 10px;
+  background: #a0a2ad;
+  color: white;
+  height: 20px;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  height: 100%;
+}
+
+.input-field:focus {
+  border: 2px solid #a0a2ad;
+}
+#cake-icon{
+  height: 24px;
+}
+#globe-icon{
+  height: 19px;
+}
+
+.btn:hover {
+  opacity: 1;
 }
